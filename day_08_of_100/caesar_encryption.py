@@ -1,5 +1,4 @@
-import re 
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',' ']
 
 # direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 text = input("Type your message:\n").lower()
@@ -9,9 +8,7 @@ shift = int(input("Type the shift number:\n"))
 letter_indexes =[]
 
 def encrypt(_text,_shift):
-  global alphabet
   encrypted_text = ""
-  # get the index of each letter
   for letter in _text:
           letter_indexes.append(alphabet.index(letter))
   for index in range(len(letter_indexes)):
@@ -22,4 +19,4 @@ def encrypt(_text,_shift):
     encrypted_text += alphabet[letter_indexes[index]]
   print(encrypted_text)    
 
-  encrypt(text,shift)
+encrypt(text,shift)
