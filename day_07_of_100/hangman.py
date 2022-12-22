@@ -52,7 +52,3 @@ while is_running:
         is_running = False
         print("YOU WIN")
     occurences = []
-
-    # print(word_count)
-    # print(occurences)
-    # print(target_word)
