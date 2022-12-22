@@ -7,36 +7,22 @@ shift = int(input("Type the shift number:\n"))
 
 letter_indexes =[]
 
-def encrypt(_text,_shift):
+def caesar(_text,_shift,_direction):
   global alphabet
-  encrypted_text = ""
+  cipher_text = ""
   for letter in _text:
-          letter_indexes.append(alphabet.index(letter))
+      letter_indexes.append(alphabet.index(letter))
   for index in range(len(letter_indexes)):
-    letter_indexes[index] += _shift
+    if _direction == "encode":
+      letter_indexes[index] += _shift
+    elif direction == "decode":
+      letter_indexes[index] -= _shift
+    # else:
+    #   return "opps!, sorry, enter a valid command "  
   for index in range (len(_text)):
     if letter_indexes[index] > len(alphabet) -1:
        letter_indexes[index] = letter_indexes[index] % len(alphabet)
-    encrypted_text += alphabet[letter_indexes[index]]
-  return encrypted_text    
-    
-def decrypt(_text,_shift):
-  global alphabet
-  decrypted_text =""
-  for letter in _text:
-          letter_indexes.append(alphabet.index(letter))
-  for index in range(len(letter_indexes)):
-    letter_indexes[index] -= _shift
-  for index in range (len(_text)):
-    if letter_indexes[index] > len(alphabet) -1:
-       letter_indexes[index] = letter_indexes[index] % len(alphabet)
-    decrypted_text += alphabet[letter_indexes[index]]
-  return decrypted_text
+    cipher_text += alphabet[letter_indexes[index]]
+  return cipher_text    
 
-
-if direction == "encode":
-  print(f"your encrypted text is {encrypt(text,shift)}")
-elif direction == "decode": 
-  print(f"your decrypted text is {decrypt(text,shift)}")
-else:
-  print("opps!, sorry enter a valid command ")
+print(f"your ciphered text is {caesar(_text=text,_shift=shift,_direction=direction)}")    
