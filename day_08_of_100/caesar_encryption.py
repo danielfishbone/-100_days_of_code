@@ -18,5 +18,17 @@ def encrypt(_text,_shift):
        letter_indexes[index] = letter_indexes[index] % len(alphabet)
     encrypted_text += alphabet[letter_indexes[index]]
   print(encrypted_text)    
+def decrypt(_text,_shift):
+  global alphabet
+  decrypted_text =""
+  for letter in _text:
+          letter_indexes.append(alphabet.index(letter))
+  for index in range(len(letter_indexes)):
+    letter_indexes[index] -= _shift
+  for index in range (len(_text)):
+    if letter_indexes[index] > len(alphabet) -1:
+       letter_indexes[index] = letter_indexes[index] % len(alphabet)
+    decrypted_text += alphabet[letter_indexes[index]]
+  print(decrypted_text)
 
-encrypt(text,shift)
+decrypt(text,shift)
