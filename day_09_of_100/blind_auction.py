@@ -1,5 +1,4 @@
 import os
-#HINT: You can call clear() to clear the output in the console.
 
 is_bidding =True
 bidders = {}
