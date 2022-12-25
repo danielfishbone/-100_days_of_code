@@ -1,5 +1,5 @@
 # A code that give the number of days in a month 
-# it takes the year and moth as the input parameters 
+# it takes the year and moth as the input parameters  
 
 def is_leap(year):
   if year % 4 == 0:
