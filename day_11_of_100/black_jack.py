@@ -37,8 +37,6 @@ def check_cards(_player_cards,_dealer_cards):
 
 def show_stat(hide_dealer_card = False):
         """displays player score and cash """
-        global player_cards
-        global dealer_cards
         a,b = check_cards(player_cards,dealer_cards)
         print(f"player card: {player_cards}")   
         print(f"player score: {a} player cash : ${player_cash}") 
@@ -72,9 +70,7 @@ while play:
         else:
             player_cards = []
             dealer_cards = []    
-            # print("continue")  
-            # print(player_cards)
-            # print(dealer_cards)
+
     replay = True                
 
     if option == "y":
@@ -111,14 +107,6 @@ while play:
                     
 
                 show_stat()
-                # if input("play again? Press any key  to play or 'c' to cashout: ") == "c":
-                #         play = False
-                # else:
-                #     player_cards = []
-                #     dealer_cards = []    
-                #     print("continue")  
-                #     print(player_cards)
-                #     print(dealer_cards)
                 is_running = False
     else:
         play = False
