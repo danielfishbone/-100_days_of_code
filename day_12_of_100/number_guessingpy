@@ -1,0 +1,38 @@
+from random import randint
+logo = """  ________                             __________.__              _______               ___.                 
+ /  _____/ __ __  ____   ______ ______ \__    ___|  |__   ____    \      \  __ __  _____\_ |__   ___________ 
+/   \  ___|  |  _/ __ \ /  ___//  ___/   |    |  |  |  \_/ __ \   /   |   \|  |  \/     \| __ \_/ __ \_  __ \
+\    \_\  |  |  \  ___/ \___ \ \___ \    |    |  |   Y  \  ___/  /    |    |  |  |  Y Y  | \_\ \  ___/|  | \/
+ \______  |____/ \___  /____  /____  >   |____|  |___|  /\___  > \____|__  |____/|__|_|  |___  /\___  |__|   
+        \/           \/     \/     \/                 \/     \/          \/            \/    \/     \/    
+        
+        """
+number = randint(1,101)
+is_playing = True
+print(logo)
+print("Welcome to the number guessing game ")
+print("I'm thinking of a number between 1 and 100 ")
+if input("Choose a difficulty. Type 'easy' or 'hard': ") == 'easy':
+    lives =10
+else:
+    lives = 5    
+def guess():
+    return int(input("Make a guess: "))
+
+while is_playing:
+    print(f"You have {lives} remaining to guess the correct number")
+    guessed = guess() 
+    if guessed > number and lives > 0:
+        print("Too High\nGuess again")
+        lives -= 1
+
+    elif guessed < number and lives > 0:
+        print("Too Low\nGuess again")
+        lives -= 1
+    elif guessed == number and lives > 0: 
+        print(f"Congratulations {guessed} is Correct")
+        is_playing =False 
+
+    if lives <= 0:
+        print(f"Game over you lost, the numver is {number}")     
+        is_playing =False  
