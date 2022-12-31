@@ -46,11 +46,25 @@ def prompt():
 def show_resources():
     print(
         f'You have {resources["water"]}{liquid_unit} of water, {resources["milk"]}{liquid_unit} of milk and {resources["coffee"]}{solid_unit} of coffee left')
-def compare_resources(_drink):
-    _drink_water = _drink["ingredients"]["water"]
-    _drink_milk = _drink["ingredients"]["milk"]
-    _drink_coffee = _drink["ingredients"]["coffee"]
-    
+
+
+def compare_resources(_coffee):
+    statement = ""
+    if resources["water"] < _coffee["ingredients"]["water"]:
+        statement += "insufficient water"
+    if resources["milk"] < _coffee["ingredients"]["milk"]:
+        if len(statement) > 0:
+            statement += ", "
+        statement += "insufficient milk"
+    if resources["coffee"] < _coffee["ingredients"]["coffee"]:
+        if len(statement) > 0:
+            statement += ", "
+        statement += "insufficient coffee"
+    if len() <= 0:
+        return True, "available"
+    else:
+        return False, statement
+
 
 def check_cash(cost):
     quarters = int(input("How many quarters($0.25)?: ")) * 0.25
@@ -59,7 +73,7 @@ def check_cash(cost):
     pennies = int(input("How many pennies($0.01)?: ")) * 0.01
     total_amount = quarters + dimes + nickels + pennies
     if total_amount >= cost:
-        return total_amount-cost
+        return total_amount - cost
 
 
 print(show_resources())
