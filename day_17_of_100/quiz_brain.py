@@ -11,6 +11,7 @@ class QuizBrain:
         text = self.questions_list[self.question_number].text
         answer = self.questions_list[self.question_number].answer
         self.question_number += 1
+        print("\n")
         user_answer = input(f"Q.{self.question_number}: {text}? (True/False): ").lower()
         self.check_answer(answer, user_answer) 
 
