@@ -58,9 +58,19 @@ def random_color():
     B = random()
     _color = (R,G,B)
     return _color
+def spirograph(_size =100,_circles = 36,_turtle = turtl):
+    """creates a spirograph with random colors"""
+    _turtle.speed("fastest") 
+       
+    for i in range(_circles):
+        _turtle.pencolor(random_color())
+        _turtle.circle(_size)
+        _turtle.right(360/_circles)
 
-draw_dashed(200,turtl)
-random_walk(200,turtl)
-draw_dashed(200,turtl)
+
+spirograph(_size =200)
+# draw_dashed(200,turtl)
+# random_walk(200,turtl)
+# draw_dashed(200,turtl)
 # draw_all_shapes(turtl)
 screen.exitonclick()
