@@ -1,9 +1,9 @@
 from turtle import Turtle,Screen
-
+from random import choice 
 
 turtl = Turtle()
-turtl.shape("circle")
-
+turtl.shape("classic")
+colors = ["red","green","blue","yellow","dark green", "sienna","magenta" , "orange", "hot pink", "olive drab", "gray"]
 def draw_polygon(_num_of_sides,_size = 100,_turtl = turtl):
     """ this draws a polygon, takes number of sides length of line and turtle object as inputs"""
 
@@ -24,6 +24,14 @@ def draw_dashed(_size,_turtl):
             _turtl.forward(_spacing)  
             
 
-draw_dashed(200,turtl)
+def draw_all_shapes(_turtl):
+    for shape in range(3,9):
+        _turtl.pencolor(choice(colors))
+        draw_polygon(shape,100,_turtl)
+
+
+
+draw_dashed(100,turtl)
+draw_all_shapes(turtl)
 screen = Screen()
 screen.exitonclick()
