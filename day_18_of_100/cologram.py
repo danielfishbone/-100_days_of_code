@@ -1,4 +1,5 @@
 import colorgram
+#image path
 image_path = "/home/fishbone/-100_days_of_code/day_18_of_100/hirst1.jpeg"
 color_set = []
 def get_color(_path):
@@ -15,3 +16,4 @@ def get_color(_path):
     
 color_set = get_color(image_path)
 print(color_set)   
+
