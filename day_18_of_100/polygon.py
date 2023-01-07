@@ -69,8 +69,8 @@ def spirograph(_size =100,_circles = 36,_turtle = turtl):
 
 
 spirograph(_size =200)
-# draw_dashed(200,turtl)
-# random_walk(200,turtl)
+#draw_dashed(200,turtl)
+#random_walk(200,turtl)
 # draw_dashed(200,turtl)
 # draw_all_shapes(turtl)
 screen.exitonclick()
