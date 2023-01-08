@@ -23,10 +23,23 @@ def create_food():
 def move_food(_food):
     _food.goto(randint(-width/2,width/2),randint(-height/2,height/2))
 
+def draw_boundary():
+    bt = Turtle()
+    bt.color("white")
+    bt.penup()
+    bt.goto(-1*width/2,-1*height/2)
+    bt.pendown()
+    bt.goto(1*width/2,-1*height/2)
+    bt.goto(1*width/2,1*height/2)
+    bt.goto(-1*width/2,1*height/2)
+    bt.goto(-1*width/2,-1*height/2)
+    bt.ht()
+
 x = y = 0
 
 food_flag = False
 score = 0
+draw_boundary()
 for _ in range(5):
     new_segment = Turtle(shape="square")
     new_segment.color("white")
