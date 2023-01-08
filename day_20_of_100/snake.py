@@ -58,7 +58,7 @@ while not game_over:
             move_food(food)
             food_flag = True
         if  food_flag:
-            if (food.xcor() >= snake[0].xcor()+10 or food.xcor() <= snake[0].xcor()-10  ) and (food.ycor()>=snake[0].ycor()+10 or food.ycor()<=snake[0].ycor()-10 ):
+            if ( snake[0].xcor() >= food.xcor()-10 and snake[0].xcor()  <= food.xcor()+10 ) and ( snake[0].ycor() >= food.ycor()-10 and snake[0].ycor() <= food.ycor() +10 ):
                 score += 1  
                 screen.title(score) 
                 food_flag = False
