@@ -1,7 +1,7 @@
 from random import randint
 from signal import pause
 import time
-from turtle import Turtle, Screen, color, xcor
+from turtle import Turtle, Screen
 
 snake = []
 
@@ -20,6 +20,8 @@ def move_left():
     snake[0].left(90)
 def move_right():
     snake[0].right(90)
+
+
 def create_food():
     _food =Turtle("circle")
     _food.color("blue")
