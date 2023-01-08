@@ -85,5 +85,7 @@ while not game_over:
                 screen.title(score) 
                 add_segment(snake)
                 food_flag = False
-
+    if  (snake[0].xcor() >=width/2 or snake[0].xcor() <= -1*width/2 )  or (snake[0].ycor() >=height/2 or snake[0].ycor() <= -1*height/2 ) :        
+        game_over  = True
+        screen.title(f"Game over! Score {score}")
 screen.exitonclick()
