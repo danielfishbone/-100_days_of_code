@@ -17,7 +17,7 @@ def move_right():
 def create_food():
     _food =Turtle("circle")
     _food.color("blue")
-    _food.goto(randint(0,width),randint(0,height))
+    _food.goto(randint(-width/2,width/2),randint(-height/2,height/2))
     return _food
 
 x = y = 0
@@ -41,11 +41,11 @@ game_over = False
 while not game_over:
     screen.update()
     screen.listen()
-    time.sleep(0.2)
+    time.sleep(0.01)
     screen.onkeypress(key="Left",fun=move_left)
     screen.onkeypress(key="Right",fun=move_right)
     
-    snake[0].fd(20)
+    snake[0].fd(1)
     for seg_num in range(len(snake)-1,0,-1):
         new_x = snake[seg_num-1].xcor()
         new_y = snake[seg_num-1].ycor()
@@ -57,6 +57,6 @@ while not game_over:
             if food.xcor()==snake[0].xcor() and food.ycor()==snake[0].ycor():
                 score += 1  
                 screen.title(score) 
-
+                food_flag = False
 
 screen.exitonclick()
