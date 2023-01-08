@@ -23,7 +23,7 @@ def create_food():
 x = y = 0
 
 food_flag = False
-
+score = 0
 for _ in range(5):
     new_segment = Turtle(shape="square")
     new_segment.color("white")
@@ -31,7 +31,7 @@ for _ in range(5):
     new_segment.setpos(x,y)
     x-=20
     snake.append(new_segment)
-
+    
 screen.setup(width=width,height=height)
 screen.bgcolor("black")
 screen.title("Snakes")
@@ -44,12 +44,19 @@ while not game_over:
     time.sleep(0.2)
     screen.onkeypress(key="Left",fun=move_left)
     screen.onkeypress(key="Right",fun=move_right)
+    
     snake[0].fd(20)
     for seg_num in range(len(snake)-1,0,-1):
         new_x = snake[seg_num-1].xcor()
         new_y = snake[seg_num-1].ycor()
         snake[seg_num].goto(x = new_x, y = new_y)
-
+        if not food_flag:
+            food = create_food()
+            food_flag = True
+        if  food_flag:
+            if food.xcor()==snake[0].xcor() and food.ycor()==snake[0].ycor():
+                score += 1  
+                screen.title(score) 
 
 
 screen.exitonclick()
