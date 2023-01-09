@@ -1,20 +1,25 @@
 import time
-from turtle import Screen, window_width
+from turtle import Screen
 from snake import Snake
 from food import Food 
+from scoreboard import ScoreBoard
 
 screen = Screen()
 width  = 600
 height = 600
+screen.setup(width,height)
 score = 0
 screen.bgcolor("black") # set background colour to black
 screen.tracer(0) # Turn off automatic screen updates
+screen.title("Snake Game") 
 my_snake = Snake()
 food = Food(width,height)
+scoreboard = ScoreBoard()
 game_over = False
 
 while not game_over:
     my_snake.move()
+    scoreboard.update()
     screen.update()
     time.sleep(0.1)
     screen.listen()
@@ -25,10 +30,11 @@ while not game_over:
 
     if my_snake.head.distance(food) <= 15:
         food.move()
-        score += 1
+        scoreboard.add()
         my_snake.add_segment()
-        screen.title(score)
 
+    if my_snake.head.xcor() > 280 or my_snake.head.xcor() < -290 or my_snake.head.ycor() > 290 or my_snake.head.ycor() < -280 :
+        game_over = True
 
 
 
