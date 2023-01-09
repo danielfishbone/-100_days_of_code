@@ -16,32 +16,38 @@ my_snake = Snake()
 food = Food(width,height)
 scoreboard = ScoreBoard()
 game_over = False
-
+paused = False
+def pause():
+    global paused
+    paused = not paused 
 while not game_over:
-    my_snake.move()
+    
     scoreboard.update()
     screen.update()
     time.sleep(0.1)
     screen.listen()
-    screen.onkeypress(key="Left",fun=my_snake.go_left)
-    screen.onkeypress(key="Right",fun=my_snake.go_right)
-    screen.onkeypress(key="Up",fun=my_snake.go_up)
-    screen.onkeypress(key="Down",fun=my_snake.go_down)
+    screen.onkeypress(key="space",fun=pause)
+    if not paused:
+        my_snake.move()
+        screen.onkeypress(key="Left",fun=my_snake.go_left)
+        screen.onkeypress(key="Right",fun=my_snake.go_right)
+        screen.onkeypress(key="Up",fun=my_snake.go_up)
+        screen.onkeypress(key="Down",fun=my_snake.go_down)
 
-    if my_snake.head.distance(food) <= 15:
-        food.move()
-        scoreboard.add()
-        my_snake.add_segment()
+        if my_snake.head.distance(food) <= 15:
+            food.move()
+            scoreboard.add()
+            my_snake.add_segment()
 
-    if my_snake.head.xcor() > 280 or my_snake.head.xcor() < -290 or my_snake.head.ycor() > 290 or my_snake.head.ycor() < -280 :
-        game_over = True
-        scoreboard.game_over()
-
-    for segs in my_snake.snake:
-        if segs == my_snake.head:
-            pass
-        elif my_snake.head.distance(segs) <10:
+        if my_snake.head.xcor() > 280 or my_snake.head.xcor() < -290 or my_snake.head.ycor() > 290 or my_snake.head.ycor() < -280 :
             game_over = True
             scoreboard.game_over()
+
+        for segs in my_snake.snake:
+            if segs == my_snake.head:
+                pass
+            elif my_snake.head.distance(segs) <10:
+                game_over = True
+                scoreboard.game_over()
 
 screen.exitonclick()
