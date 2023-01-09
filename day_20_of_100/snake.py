@@ -9,13 +9,13 @@ class Snake:
         seg.penup()
         self.snake = []
         self.snake.append(seg)
+        self.head = seg
         for i in range(3):
             seg = Turtle("square")
             seg.color("white")
             seg.penup()
             seg.goto((-i*-20)-40,0)
             self.snake.append(seg)
-
     def new_segment(self,_x,_y):
         new_segment = Turtle(shape="square")
         new_segment.color("white")
