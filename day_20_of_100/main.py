@@ -43,10 +43,8 @@ while not game_over:
             game_over = True
             scoreboard.game_over()
 
-        for segs in my_snake.snake:
-            if segs == my_snake.head:
-                pass
-            elif my_snake.head.distance(segs) <10:
+        for segs in my_snake.snake[1:]:
+            if my_snake.head.distance(segs) <10:
                 game_over = True
                 scoreboard.game_over()
 
