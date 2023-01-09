@@ -8,18 +8,20 @@ class ScoreDoard(Turtle):
         self.score = 0
         self.penup()
         self.goto(0,300)
-        self.write(f"SCORE : {self.score} ",align="center",font=("Arial",20,"bold"))
+        self.update()
         
-    
+    def add(self):
+        self.score += 1
+
     def update (self):
         self.clear()
-        self.score += 1
         self.write(f"SCORE : {self.score} ",align="center",font=("Arial",20,"bold"))   
         
 
 if __name__ =="__main__":
     screen = Screen()
     scoreb = ScoreDoard()
+    scoreb.add()
     scoreb.update()
 
     screen.exitonclick()
