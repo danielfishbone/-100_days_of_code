@@ -7,6 +7,7 @@ class Food(Turtle):
         super().__init__()
         self._width = _width
         self._hieght = _hieght   
+        self.goto(randint(((-self._width)/2)+10,((self._width)/2)-10),randint(((-self._hieght)/2)+10,((self._hieght)/2)-10))   
         self.shape("circle")
         self.speed("fastest")
         self.penup()
