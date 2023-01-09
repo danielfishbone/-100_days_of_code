@@ -4,21 +4,23 @@ from turtle import Turtle, Screen
 
 class Snake:
     def __init__(self) -> None:
-        seg = Turtle("square")
+        seg = Turtle("circle")
         seg.color("red")
         seg.penup()
         self.snake = []
         self.snake.append(seg)
         self.head = seg
         for i in range(3):
-            seg = Turtle("square")
+            seg = Turtle("circle")
             seg.color("white")
             seg.penup()
             seg.goto((-i*-20)-40,0)
+            seg.fillcolor("blue")
             self.snake.append(seg)
     def new_segment(self,_x,_y):
-        new_segment = Turtle(shape="square")
+        new_segment = Turtle(shape="circle")
         new_segment.color("white")
+        new_segment.fillcolor("blue")
         new_segment.penup()
         new_segment.setpos(_x,_y)
         self.snake.append(new_segment)    
