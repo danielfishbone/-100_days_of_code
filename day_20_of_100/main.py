@@ -9,7 +9,7 @@ my_snake = Snake()
 game_over = False
 
 while not game_over:
-    my_snake.move()
+    my_snake.mTurtleove()
     screen.update()
     time.sleep(0.2)
     screen.listen()
