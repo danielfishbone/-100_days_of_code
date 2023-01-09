@@ -35,7 +35,13 @@ while not game_over:
 
     if my_snake.head.xcor() > 280 or my_snake.head.xcor() < -290 or my_snake.head.ycor() > 290 or my_snake.head.ycor() < -280 :
         game_over = True
+        scoreboard.game_over()
 
-
+    for segs in my_snake.snake:
+        if segs == my_snake.head:
+            pass
+        elif my_snake.head.distance(segs) <10:
+            game_over = True
+            scoreboard.game_over()
 
 screen.exitonclick()
