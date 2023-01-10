@@ -5,7 +5,7 @@ FILL_COLOR = "white"
 SPACING = 10
 
 class Board(Turtle):
-    def __init__(self,width,height):
+    def __init__(self,width =800,height=600):
         super().__init__(visible = False)
         self.width = width/2 
         self.height = height/2
