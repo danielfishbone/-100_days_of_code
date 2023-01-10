@@ -9,7 +9,7 @@ class Board(Turtle):
         self.height = _height/2
         self.pen(fillcolor=BOARD_COLOR, pencolor=PEN_COLOR, pensize=PENSIZE)
         self.penup()
-    def draw(self):
+    def draw_board(self):
         self.goto(-self.width,-self.height)
         self.pendown()
         self.goto(self.width,-self.height)
@@ -18,4 +18,8 @@ class Board(Turtle):
         self.goto(-self.width,-self.height)
         self.penup()
             
-   
+    def draw_centre_line(self):
+        self.goto(0,-self.height)
+        self.pendown()
+        self.goto(0,self.height)
+
