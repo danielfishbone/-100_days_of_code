@@ -14,13 +14,11 @@ class Ball(Turtle):
         self.penup()
 
     def move(self):    
-        if self.ycor() >290 or self.ycor() < -290:
-            self.multiplier_y *= -1
-        self.goto((self.xcor()+self.x),self.ycor()+(self.y*self.multiplier_y))
-    def bounce(self):
-        if self.ycor() >290 or self.ycor() < -290:
-            self.multiplier_x *= -1
-        self.goto(self.xcor()+(self.x *self.multiplier_x),self.ycor()+self.y)
+        self.goto(self.xcor()+(self.x* self.multiplier_x),self.ycor()+(self.y*self.multiplier_y))
+    def bounce_x(self):
+        self.multiplier_x *= -1
+    def bounce_y(self):
+        self.multiplier_y *= -1
 
 if __name__ == "__main__":
     screen = Screen()
