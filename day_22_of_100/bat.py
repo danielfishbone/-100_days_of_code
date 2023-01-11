@@ -8,7 +8,7 @@ class Bat(Turtle):
         self.x_pos = x_pos
         self.y_pos = y_pos
         self._color = color
-        self.move_tab = 10
+        self.move_tab = 40
         self.speed("fastest")
         self.color(self._color)
         self.penup()
@@ -16,12 +16,17 @@ class Bat(Turtle):
         self.shapesize(stretch_len=0.5,stretch_wid=self.length_factor)
 
     def move_up(self):
-        self.y_pos =self.y_pos - self.move_tab
-        self.goto(self.x_pos, self.y_pos)
+        pos_v =(300 - self.length_factor*10)
+        
+        if self.y_pos < pos_v:
+            self.y_pos =self.y_pos + self.move_tab
+            self.goto(self.x_pos, self.y_pos)
         
     def move_down(self):
-        self.y_pos = self.y_pos + self.move_tab
-        self.goto(self.x_pos, self.y_pos)
+        neg_v =(-300 + self.length_factor*10)
+        if self.y_pos > neg_v:
+            self.y_pos = self.y_pos - self.move_tab
+            self.goto(self.x_pos, self.y_pos)
 
 
 if __name__ =="__main__":
