@@ -31,9 +31,12 @@ while running:
     screen.onkey(fun=player2.move_up,key="Up")
     screen.onkey(fun=player2.move_down,key="Down")
 
+    if ball.ycor() >290 or ball.ycor() < -290:
+        ball.bounce_y()
+
     if ball.xcor() >= player2.xcor()-20 and ball.distance(player2) <=50:
         print("collision on player 2")
-        ball.bounce()
+        ball.bounce_x()
         print(f"x cor ={ball.xcor()}")
         print(f"y cor ={ball.ycor()}")
 

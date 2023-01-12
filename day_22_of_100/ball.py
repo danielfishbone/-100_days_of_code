@@ -7,14 +7,15 @@ class Ball(Turtle):
         self.Color = color
         self.multiplier_x = 1
         self.multiplier_y = 1
-        self.x = 20
-        self.y = 20
+        self.x = 10
+        self.y = 10
         self.shapesize(1,1)
         self.color(self.Color)
         self.penup()
 
     def move(self):    
-        self.goto(self.xcor()+(self.x* self.multiplier_x),self.ycor()+(self.y*self.multiplier_y))
+        self.goto(self.xcor()+(self.x * self.multiplier_x),self.ycor()+(self.y*self.multiplier_y))
+    
     def bounce_x(self):
         self.multiplier_x *= -1
     def bounce_y(self):
