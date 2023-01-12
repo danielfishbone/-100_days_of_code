@@ -37,8 +37,10 @@ while running:
     if ball.xcor() >= player2.xcor()-20 and ball.distance(player2) <=50:
         print("collision on player 2")
         ball.bounce_x()
-        print(f"x cor ={ball.xcor()}")
-        print(f"y cor ={ball.ycor()}")
+
+    if ball.xcor() <= player1.xcor()+20 and ball.distance(player1) <=50:
+        print("collision on player 1")
+        ball.bounce_x()
 
     screen.update()
     time.sleep(0.1)
