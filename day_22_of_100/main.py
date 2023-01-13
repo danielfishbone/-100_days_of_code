@@ -45,6 +45,7 @@ while running:
         print("player 2 Missed")
         player1.score += 1
         ball.centre()
+        print(f"Player1 {player1.score} : {player2.score } Player2")
     if ball.xcor() <= player1.xcor()-20:
         print("player 1 Missed")
         player2.score += 1

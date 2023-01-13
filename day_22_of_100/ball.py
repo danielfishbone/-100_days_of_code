@@ -23,7 +23,7 @@ class Ball(Turtle):
     def centre(self):
         self.goto(0,0)
         self.bounce_y()
-
+        self.bounce_x()
 
 if __name__ == "__main__":
     screen = Screen()
