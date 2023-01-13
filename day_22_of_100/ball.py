@@ -20,6 +20,10 @@ class Ball(Turtle):
         self.multiplier_x *= -1
     def bounce_y(self):
         self.multiplier_y *= -1
+    def centre(self):
+        self.goto(0,0)
+        self.bounce_y()
+
 
 if __name__ == "__main__":
     screen = Screen()
