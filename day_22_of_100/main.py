@@ -53,5 +53,5 @@ while running:
         print(f"Player1 {player1.score} : {player2.score } Player2")
 
     screen.update()
-    time.sleep(0.1)
+    time.sleep(0.03)
 screen.exitonclick()
