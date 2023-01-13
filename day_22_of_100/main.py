@@ -3,6 +3,7 @@ from turtle import  Screen
 from board import Board
 from bat import Bat
 from ball import Ball
+from scoreboard import ScoreBoard
 
 WIDTH = 840
 HEIGHT = 640
@@ -21,7 +22,7 @@ board =Board(width=board_width,height=board_height)
 player1 = Bat(-350,color="green")
 player2 = Bat(350,color="purple")
 ball = Ball()
-
+scoreboard = ScoreBoard()
 running =True
 while running:
     ball.move()
@@ -44,14 +45,17 @@ while running:
     if ball.xcor() >= player2.xcor()+20:
         print("player 2 Missed")
         player1.score += 1
+        scoreboard.l_score = player1.score
         ball.centre()
         print(f"Player1 {player1.score} : {player2.score } Player2")
     if ball.xcor() <= player1.xcor()-20:
         print("player 1 Missed")
         player2.score += 1
+        scoreboard.r_score = player2.score
         ball.centre()
         print(f"Player1 {player1.score} : {player2.score } Player2")
 
+    scoreboard.update()
     screen.update()
     time.sleep(0.03)
 screen.exitonclick()
