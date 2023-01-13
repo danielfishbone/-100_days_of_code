@@ -41,6 +41,15 @@ while running:
     if ball.xcor() <= player1.xcor()+20 and ball.distance(player1) <=50:
         print("collision on player 1")
         ball.bounce_x()
+    if ball.xcor() >= player2.xcor()+20:
+        print("player 2 Missed")
+        player1.score += 1
+        ball.centre()
+    if ball.xcor() <= player1.xcor()-20:
+        print("player 1 Missed")
+        player2.score += 1
+        ball.centre()
+        print(f"Player1 {player1.score} : {player2.score } Player2")
 
     screen.update()
     time.sleep(0.1)
