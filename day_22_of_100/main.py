@@ -7,10 +7,11 @@ from scoreboard import ScoreBoard
 
 WIDTH = 840
 HEIGHT = 640
-
+START_SPEED = 0.05
 board_width = 800
 board_height = 600
 
+play_speed = START_SPEED
 
 screen = Screen()
 screen.tracer(0)
@@ -37,25 +38,31 @@ while running:
 
     if ball.xcor() >= player2.xcor()-20 and ball.distance(player2) <=50:
         print("collision on player 2")
+        play_speed -= 0.002
         ball.bounce_x()
 
     if ball.xcor() <= player1.xcor()+20 and ball.distance(player1) <=50:
         print("collision on player 1")
+        play_speed -= 0.002
         ball.bounce_x()
     if ball.xcor() >= player2.xcor()+20:
         print("player 2 Missed")
         player1.score += 1
         scoreboard.l_score = player1.score
         ball.centre()
+        play_speed = START_SPEED
+
         print(f"Player1 {player1.score} : {player2.score } Player2")
     if ball.xcor() <= player1.xcor()-20:
         print("player 1 Missed")
         player2.score += 1
         scoreboard.r_score = player2.score
         ball.centre()
+        play_speed = START_SPEED
         print(f"Player1 {player1.score} : {player2.score } Player2")
-
+    if play_speed < 0.002:
+        play_speed = 0.002
     scoreboard.update()
     screen.update()
-    time.sleep(0.03)
+    time.sleep(play_speed)
 screen.exitonclick()
