@@ -7,4 +7,6 @@ class Player(Turtle):
         self.penup()
         self.goto(0,-280)
 
-    
+    def move(self):
+        new__y = self.ycor +10    
+        self.goto(0,new__y)
