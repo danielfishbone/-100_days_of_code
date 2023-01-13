@@ -9,6 +9,7 @@ class Bat(Turtle):
         self.y_pos = y_pos
         self._color = color
         self.move_tab = 40
+        self.score = 0
         self.speed("fastest")
         self.color(self._color)
         self.penup()
