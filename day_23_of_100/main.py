@@ -31,12 +31,15 @@ while not game_over:
 
     for i in range(len(cars)):
         cars[i].move()
-        if cars[i].xcor() <= -300:
+        if player.distance(cars[i]) <10:
+            game_over = True
+            print("gameover")
+        if cars[i].xcor() <= -350:
             cars[i].hideturtle()
-            cars[i] = 0
+            cars[i] = None
             cars.pop(i) 
             break   
-    sleep(0.1)
+    
     screen.listen()
     screen.onkeypress(fun =player.move, key="Up" )
 
@@ -45,6 +48,7 @@ while not game_over:
 
     counter += 1
     screen.update()
+    sleep(0.01)
 screen.exitonclick()
 
 
