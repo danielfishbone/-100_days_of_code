@@ -42,7 +42,7 @@ while not game_over:
         cars[i].move()
         if player.distance(cars[i]) <10:
             game_over = True
-            print("gameover")
+            scoreboard.game_over()
         if cars[i].xcor() <= -350:
             cars[i].hideturtle()
             cars[i] = None
