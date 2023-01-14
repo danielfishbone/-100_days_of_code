@@ -13,7 +13,7 @@ screen.setup(WIDTH,HEIGHT)
 screen.tracer(0)
 player = Player()
 scoreboard = ScoreBoard()
-
+sleep_time = 0.1
 new_car_flag = False
 count = 0
 counter = 0
@@ -33,7 +33,10 @@ while not game_over:
 
     if player.ycor()>= 280:
         scoreboard.level_up()
-        player.reset_position()    
+        player.reset_position()
+        sleep_time * 0.66
+        if sleep_time < 0.01:
+            sleep_time = 0.01    
 
     for i in range(len(cars)):
         cars[i].move()
@@ -53,7 +56,7 @@ while not game_over:
 
     counter += 1
     screen.update()
-    sleep(0.1)
+    sleep(sleep_time)
 screen.exitonclick()
 
 
