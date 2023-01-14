@@ -1,7 +1,7 @@
 from turtle import Turtle
 
 FONT = ("Courier", 24, "normal")
-SCORE_POS = (-200,250)
+SCORE_POS = (-220,250)
 
 class ScoreBoard(Turtle):
     def __init__(self) -> None:
@@ -18,4 +18,4 @@ class ScoreBoard(Turtle):
     def update_score(self):
         self.clear()
         self.goto(SCORE_POS)        
-        self.write(self.score,align="center",font=FONT)
+        self.write(f"Level: {self.score}",align="center",font=FONT)
