@@ -8,7 +8,7 @@ SCREEN_WIDTH = 280
 class Car(Turtle):
     def __init__(self )-> None:
         super().__init__(shape = "square")
-        self.shapesize(0.5,2.5)
+        self.shapesize(1,2)
         self.color(choice(COLORS))
         self.penup()
         self.moving_distance = STARTING_MOVE_DISTANCE
