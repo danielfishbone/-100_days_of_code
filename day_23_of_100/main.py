@@ -1,5 +1,6 @@
 from random import randint
-from turtle import Screen 
+from turtle import Screen
+from scoreboard import ScoreBoard 
 from player import Player
 from cars import Car
 from time import sleep
@@ -11,7 +12,8 @@ screen = Screen()
 screen.setup(WIDTH,HEIGHT)
 screen.tracer(0)
 player = Player()
-# car = Car()
+scoreboard = ScoreBoard()
+
 new_car_flag = False
 count = 0
 counter = 0
@@ -43,7 +45,6 @@ while not game_over:
     screen.listen()
     screen.onkeypress(fun =player.move, key="Up" )
 
-    # car.move()
 
 
     counter += 1

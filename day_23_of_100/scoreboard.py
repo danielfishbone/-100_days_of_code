@@ -12,4 +12,5 @@ class ScoreBoard(Turtle):
         self.color("black")
         self.write(self.score,align="center",font=FONT)
 
-    
+    def level_up(self):
+        self.score+=1
