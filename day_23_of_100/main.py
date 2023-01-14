@@ -31,6 +31,10 @@ while not game_over:
         counter = 0
         new_car_flag = True
 
+    if player.ycor()>= 280:
+        scoreboard.level_up()
+        player.reset_position()    
+
     for i in range(len(cars)):
         cars[i].move()
         if player.distance(cars[i]) <10:
@@ -49,7 +53,7 @@ while not game_over:
 
     counter += 1
     screen.update()
-    sleep(0.01)
+    sleep(0.1)
 screen.exitonclick()
 
 

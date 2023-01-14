@@ -8,9 +8,14 @@ class ScoreBoard(Turtle):
         super().__init__(visible = False)
         self.score = 0
         self.penup()
-        self .goto(SCORE_POS)
         self.color("black")
-        self.write(self.score,align="center",font=FONT)
+        self.update_score()
 
     def level_up(self):
         self.score+=1
+        self.update_score()
+
+    def update_score(self):
+        self.clear()
+        self.goto(SCORE_POS)        
+        self.write(self.score,align="center",font=FONT)
