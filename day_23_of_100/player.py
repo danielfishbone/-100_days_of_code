@@ -5,8 +5,12 @@ class Player(Turtle):
         super().__init__(shape)
         self.setheading(90)
         self.penup()
-        self.goto(0,-280)
+        self.reset_position()
 
     def move(self):
-        new__y = self.ycor +10    
+        new__y = self.ycor() +10    
         self.goto(0,new__y)
+
+    def reset_position(self):
+        self.goto(0,-280)
+            
