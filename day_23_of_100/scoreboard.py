@@ -8,3 +8,4 @@ class ScoreBoard(Turtle):
         super().__init__(visible = False)
         self.score = 0
 
+    
