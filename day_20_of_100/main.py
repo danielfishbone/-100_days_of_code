@@ -46,6 +46,8 @@ while not game_over:
         for segs in my_snake.snake[1:]:
             if my_snake.head.distance(segs) <10:
                 game_over = True
+                
                 scoreboard.game_over()
+                
 
 screen.exitonclick()
