@@ -1,6 +1,11 @@
-file = open("/home/fishbone/python_100_days_of_code/day_24_of_100/my_file.txt")
+with  open("/home/fishbone/python_100_days_of_code/day_24_of_100/my_file.txt", mode = "r") as file :
+    contents = file.read()
+    print(contents)
 
-# contents = file.read()
-# print(contents)
 
-# file.close()
+with open("/home/fishbone/python_100_days_of_code/day_24_of_100/my_file.txt", mode = "w") as file :
+     file.write(str(3))
+
+with  open("/home/fishbone/python_100_days_of_code/day_24_of_100/my_file.txt", mode = "r") as file :
+    contents = file.read()
+    print(int(contents)+5)
