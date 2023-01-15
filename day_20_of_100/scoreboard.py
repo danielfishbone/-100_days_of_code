@@ -15,7 +15,9 @@ class ScoreBoard(Turtle):
     def get_highscore(self):
         with open("/home/fishbone/python_100_days_of_code/day_20_of_100/highscore.txt")as hs_file:
             self.high_score = int(hs_file.read())  
-
+    def update_highscore(self):
+        with open("/home/fishbone/python_100_days_of_code/day_20_of_100/highscore.txt","w")as hs_file:
+            hs_file.write(str(self.high_score))
     def add(self):
         self.score += 1
     def game_over(self):
