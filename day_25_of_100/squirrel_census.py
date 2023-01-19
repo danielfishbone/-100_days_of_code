@@ -32,8 +32,8 @@ for color in colors:
 print(f"colors{colors}")    
 print(f"colors_count{colors_count}")    
 print(new_data)
-new_dat = pd.DataFrame(new_data)
-new_dat.to_csv("squirrel_dataset.csv")
+new_dataframe = pd.DataFrame(new_data)
+new_dataframe.to_csv("squirrel_dataset.csv")
 
 
 
