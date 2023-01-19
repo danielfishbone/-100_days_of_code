@@ -9,6 +9,11 @@ fur_color = data["Primary Fur Color"]
 colors_list = fur_color.to_list()
 colors = []
 colors_count = []
+new_data = {
+    "color":[],
+    "count":[]
+
+}
 for color in colors_list:
     # if color not in colors and isinstance(color, str):
     if color not in colors:
@@ -19,9 +24,14 @@ for color in colors_list:
     index = colors. index(color)
     colors_count[index] += 1 
 
+for color in colors:
+    if isinstance(color, str):
+        new_data["color"].append(color)
+        new_data["count"].append(colors_count[colors.index(color)])
+
 print(f"colors{colors}")    
 print(f"colors_count{colors_count}")    
-
+print(new_data)
 
 
 
