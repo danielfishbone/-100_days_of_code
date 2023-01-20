@@ -6,9 +6,5 @@ screen.bgpic("day_25_of_100/us_states_game/us-states-game-start/blank_states_img
 screen.setup(width = 730,height = 500)
 
 
-def get_mouse(x,y):
-    print(x,y)
-
-
-turtle.onscreenclick(get_mouse)
+new_guess = screen.textinput(title = "Guess the States", prompt = "Whats your next guess?")
 turtle.mainloop()
