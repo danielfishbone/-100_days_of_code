@@ -35,6 +35,7 @@ while not game_over:
 
     if new_guess == "Exit":
         game_over = True
+        break
     elif new_guess in states:
         index = states.index(new_guess)
         cor_x = x_coordinates[index]
@@ -58,5 +59,4 @@ for _state in states:
 print(missed_states["state"])
 
 dataframe =pd.DataFrame(missed_states)
-missed_states.to_csv("Missed_states.csv")
-turtle.mainloop()
+dataframe.to_csv("Missed_states.csv")
