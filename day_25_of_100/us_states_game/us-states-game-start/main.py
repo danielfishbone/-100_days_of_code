@@ -3,6 +3,10 @@ import turtle
 import pandas as pd
 
 
+states = []
+x_coordinates = []
+y_coordinates = []
+
 screen = turtle.Screen()
 screen.title("US GAME")
 screen.bgpic("day_25_of_100/us_states_game/us-states-game-start/blank_states_img.gif")
@@ -10,12 +14,14 @@ screen.setup(width = 730,height = 500)
 
 data = pd.read_csv("day_25_of_100/us_states_game/us-states-game-start/50_states.csv")
 
-data_dict = data.to_dict()
+states_obj = data.state
 
-print(data_dict["x"][0])
+states = states_obj.to_list()
 
-new_guess = screen.textinput(title = "Guess the States", prompt = "Whats your next guess?")
-new_guess = new_guess.capitalize()
+print(states)
+
+# new_guess = screen.textinput(title = "Guess the States", prompt = "Whats your next guess?")
+# new_guess = new_guess.capitalize()
 
 
 
