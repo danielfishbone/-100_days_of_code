@@ -24,11 +24,9 @@ y_obj = data.y
 states = states_obj.to_list()
 x_coordinates =  x_obj.to_list()
 y_coordinates  =  y_obj.to_list()
-
+new_guess = screen.textinput(title = "Guess the state", prompt = "Whats your next guess?").title()
 states_guessed = []
 while not game_over:
-    new_guess = screen.textinput(title = "Guess the States", prompt = "Whats your next guess?").title()
-    # new_guess = new_guess.capitalize()
 
     if new_guess in states:
         index = states.index(new_guess)
@@ -39,6 +37,8 @@ while not game_over:
         if new_guess not in states_guessed:
             states_guessed.append(new_guess)
         if len(states) ==  len(states_guessed):
-            print(f"Congratulations,  you've guessed the total {len(states)} States")       
-        screen.title(f"{len(states_guessed)}/{len(states)} Correct")
+            print(f"Congratulations,  you've guessed the total {len(states)} States") 
+    new_title = f"{len(states_guessed)}/{len(states)} Correct"          
+    new_guess = screen.textinput(title = new_title, prompt = "Whats your next guess?").title()        
+        
 turtle.mainloop()
