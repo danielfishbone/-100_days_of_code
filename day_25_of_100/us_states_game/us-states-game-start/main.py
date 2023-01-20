@@ -21,6 +21,11 @@ states_obj = data.state
 x_obj = data.x
 y_obj = data.y
 
+missed_states = {
+    "state":[],
+    "x":[],
+    "y":[]
+}
 states = states_obj.to_list()
 x_coordinates =  x_obj.to_list()
 y_coordinates  =  y_obj.to_list()
@@ -28,7 +33,9 @@ new_guess = screen.textinput(title = "Guess the state", prompt = "Whats your nex
 states_guessed = []
 while not game_over:
 
-    if new_guess in states:
+    if new_guess == "Exit":
+        game_over = True
+    elif new_guess in states:
         index = states.index(new_guess)
         cor_x = x_coordinates[index]
         cor_y = y_coordinates[index]
@@ -40,5 +47,16 @@ while not game_over:
             print(f"Congratulations,  you've guessed the total {len(states)} States") 
     new_title = f"{len(states_guessed)}/{len(states)} Correct"          
     new_guess = screen.textinput(title = new_title, prompt = "Whats your next guess?").title()        
-        
+
+for _state in states:
+    if _state not in states_guessed:
+        missed_states["state"].append(_state)
+        index = states.index(_state)
+        missed_states["x"].append(x_coordinates[index])
+        missed_states["y"].append(y_coordinates[index])
+
+print(missed_states["state"])
+
+dataframe =pd.DataFrame(missed_states)
+missed_states.to_csv("Missed_states.csv")
 turtle.mainloop()
