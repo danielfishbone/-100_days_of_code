@@ -8,6 +8,7 @@ states = []
 x_coordinates = []
 y_coordinates = []
 
+game_over = False
 screen = turtle.Screen()
 writer = Writer()
 screen.title("US GAME")
@@ -24,15 +25,20 @@ states = states_obj.to_list()
 x_coordinates =  x_obj.to_list()
 y_coordinates  =  y_obj.to_list()
 
-new_guess = screen.textinput(title = "Guess the States", prompt = "Whats your next guess?")
-new_guess = new_guess.capitalize()
+states_guessed = []
+while not game_over:
+    new_guess = screen.textinput(title = "Guess the States", prompt = "Whats your next guess?").title()
+    # new_guess = new_guess.capitalize()
 
-if new_guess in states:
-    index = states.index(new_guess)
-    cor_x = x_coordinates[index]
-    cor_y = y_coordinates[index]
-    writer.goto(cor_x,cor_y)
-    writer.write(new_guess,align="center")
-
-
+    if new_guess in states:
+        index = states.index(new_guess)
+        cor_x = x_coordinates[index]
+        cor_y = y_coordinates[index]
+        writer.goto(cor_x,cor_y)
+        writer.write(new_guess,align="center")
+        if new_guess not in states_guessed:
+            states_guessed.append(new_guess)
+        if len(states) ==  len(states_guessed):
+            print(f"Congratulations,  you've guessed the total {len(states)} States")       
+        screen.title(f"{len(states_guessed)}/{len(states)} Correct")
 turtle.mainloop()
