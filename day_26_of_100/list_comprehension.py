@@ -13,3 +13,10 @@ print (x)
 new_list = [n*2 for n in range(1,5)]
 
 print(new_list)
+
+
+#************************************************************************
+# for example lets sort though a range of integers and only take the odd numbers to create a new list
+#  
+odd_nums = [n for n in range(1,20) if n %2 != 0]
+print(odd_nums)
