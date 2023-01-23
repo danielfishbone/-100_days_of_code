@@ -42,6 +42,10 @@ students_dict = {
 student_dataframe = pandas.DataFrame(students_dict)
 # print(student_dataframe)
 
-for (rows,cols) in student_dataframe.items():
-    print(rows)    
-    print(cols)
+# for (rows,cols) in student_dataframe.items():
+#     print(rows)    
+#     print(cols)
+
+for (index,row) in student_dataframe.iterrows():
+    print(row.name)
+    print(row.score)
