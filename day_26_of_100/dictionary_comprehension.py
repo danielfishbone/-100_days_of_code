@@ -9,11 +9,26 @@ student_scores = { student:random.randint(1 ,100) for student in names}
 
 students_passed = {student.title():score for (student,score) in student_scores.items() if score > 60}
 # print(students_passed)
+
+# **************************************************************************************************************
 sentence = "What is the Airspeed Velocity of an Unladen Swallow?"
 
 word_set = sentence.split(sep=" ")
-print(word_set)
+# print(word_set)
 
 words_dict = {word:len(word) for word in word_set}
 
-print(words_dict)
+# print(words_dict)
+# **************************************************************************************************************
+#  use dictionary comprehension to convert the celcius value og the temperatures to fahrenheit
+weather_c = {
+    "Monday": 12,
+    "Tuesday": 14,
+    "Wednesday": 15,
+    "Thursday": 14,
+    "Friday": 21,
+    "Saturday": 22,
+    "Sunday": 24,
+}
+weather_f = {day:(temp_c * 9/5) + 32  for (day,temp_c) in weather_c.items()}
+print(weather_f)
