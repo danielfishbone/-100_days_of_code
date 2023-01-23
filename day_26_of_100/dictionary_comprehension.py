@@ -1,3 +1,4 @@
+import pandas 
 import random
 names = ['Ale','beth','caroline','osas','mark', 'fish']
 
@@ -8,7 +9,7 @@ student_scores = { student:random.randint(1 ,100) for student in names}
 #  create a dictionary of the students that got the pass mark
 
 students_passed = {student.title():score for (student,score) in student_scores.items() if score > 60}
-# print(students_passed)
+print(students_passed)
 
 # **************************************************************************************************************
 sentence = "What is the Airspeed Velocity of an Unladen Swallow?"
@@ -31,4 +32,16 @@ weather_c = {
     "Sunday": 24,
 }
 weather_f = {day:(temp_c * 9/5) + 32  for (day,temp_c) in weather_c.items()}
-print(weather_f)
+# print(weather_f)
+# ***********************************************Looping through pandas dataframes 
+students_dict = {
+"name":['Ale','beth','caroline','osas','mark', 'fish'],
+"score":[44,12,64,81,68,101]
+
+}
+student_dataframe = pandas.DataFrame(students_dict)
+# print(student_dataframe)
+
+for (rows,cols) in student_dataframe.items():
+    print(rows)    
+    print(cols)
