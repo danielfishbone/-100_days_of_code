@@ -9,7 +9,15 @@ my_label = tkinter.Label(text="Label",font=("Arial",30,"normal"))
 my_label.pack(side="right")
 
 
+# *args 
+
+# example function
+def add(*args):
+    result = 0
+    for num in args:
+        result += num
+    return result
 
 
-
-window.mainloop()
+print(add(9,9,8,7,6,5,4,3,2,1))
+# window.mainloop()
