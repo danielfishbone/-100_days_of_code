@@ -1,4 +1,3 @@
-from ast import arguments
 import tkinter
 
 window = tkinter.Tk()
