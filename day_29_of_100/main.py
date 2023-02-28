@@ -1,8 +1,10 @@
 from tkinter import *
 from tkinter import messagebox
+import pyperclip 
 from random import choice
 from random import randint
 from password import letters,numbers,symbols
+
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 def on_gen_button():
   nr_letters = 3
@@ -29,6 +31,7 @@ def on_gen_button():
           password += str(choice(numbers))
   password_input.delete(0,END) 
   password_input.insert(0,password) 
+  pyperclip.copy(password)
   
 
     
