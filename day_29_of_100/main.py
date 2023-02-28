@@ -1,9 +1,37 @@
 from tkinter import *
 from tkinter import messagebox
-
+from random import choice
+from random import randint
+from password import letters,numbers,symbols
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 def on_gen_button():
-    pass
+  nr_letters = 3
+  nr_symbols = 2
+  nr_numbers = 3 
+
+  list_of_char = []
+  for sample in range(nr_letters):
+      list_of_char.append("L")
+  for sample in range(nr_symbols):
+      list_of_char.append("S")
+  for sample in range(nr_numbers):
+      list_of_char.append("N")
+  password = ""
+
+  for i in range(len(list_of_char)):
+      selected = randint(0, len(list_of_char) - 1)
+      val = list_of_char.pop(selected)
+      if val == "L":
+          password += str(choice(letters))
+      elif val == "S":
+          password += str(choice(symbols))
+      elif val == "N":
+          password += str(choice(numbers))
+  password_input.delete(0,END) 
+  password_input.insert(0,password) 
+  
+
+    
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save_password():
     website = website_input.get()
