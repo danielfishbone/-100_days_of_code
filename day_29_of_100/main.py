@@ -5,6 +5,13 @@ from tkinter import *
 def on_gen_button():
     pass
 # ---------------------------- SAVE PASSWORD ------------------------------- #
+def save_password():
+    data = f"{website_input.get()} | {username_input.get()} | {password_input.get()} \n"
+    with open("day_29_of_100/data.txt", mode = "a") as file :
+      file.writelines(data)
+    website_input.delete(0,END) 
+    password_input.delete(0,END) 
+    
 
 # ---------------------------- UI SETUP ------------------------------- #
  
@@ -41,7 +48,7 @@ password_input.grid(row=3,column=1)
 generate_button = Button(text="Generate",command=on_gen_button, width=10)
 generate_button.grid(row=3,column=2)
 
-add_button = Button(text="Add",command=on_gen_button, width=36)
+add_button = Button(text="Add",command=save_password, width=36)
 add_button.grid(row=4,column=1, columnspan=2)
 
 
