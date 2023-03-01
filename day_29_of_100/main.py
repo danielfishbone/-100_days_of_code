@@ -4,7 +4,7 @@ import pyperclip
 from random import choice
 from random import randint
 from password import letters,numbers,symbols
-
+import json
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 def on_gen_button():
   nr_letters = 3
@@ -40,14 +40,27 @@ def save_password():
     website = website_input.get()
     username = username_input.get()
     password = password_input.get()
-    data = f"{website} | {username} | {password} \n"
+    data_dict = {
+      website:{
+        "username":username,
+        "password":password,
+      }
+    }
 
     is_ok = messagebox.askokcancel(title=website,message=f"website:{website}\npassword: {password} \nusername: {username}\nDo you wish to save? ")
 
     if is_ok: 
       if len(website) != 0 and  len(username) != 0 and len(password) != 0:
-        with open("day_29_of_100/data.txt", mode = "a") as file :
-          file.writelines(data)
+        try:
+          with open("day_29_of_100/data.json", mode = "r") as file :
+            data = json.load(file)
+            data.update(data_dict)
+        except:
+           with open("day_29_of_100/data.json", mode = "w") as file :
+            json.dump(data_dict,file,indent=4)   
+        else:
+          with open("day_29_of_100/data.json", mode = "w") as file :
+            json.dump(data,file,indent=4)
         website_input.delete(0,END) 
         password_input.delete(0,END) 
       else:
