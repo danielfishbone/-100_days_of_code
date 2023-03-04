@@ -35,10 +35,40 @@ def on_gen_button():
     password_input.insert(0, password)
     pyperclip.copy(password)
 
+# ---------------------------- SEARCH PASSWORD ------------------------------- #
+
+
+def search_password():
+    website = website_input.get().capitalize()
+    if len(website) > 0:
+      try:
+          with open("day_29_of_100/data.json", mode="r") as file:
+              data = json.load(file)
+      except FileNotFoundError:
+          messagebox.showinfo(title="Error", message="No Database file found")
+
+      except json.decoder.JSONDecodeError:
+          messagebox.showinfo(title="Error", message="Database corrupt")
+      else:
+          try:
+              username = data[website]["username"]
+              password = data[website]["password"]
+          except KeyError:
+              messagebox.showerror(
+                  title="Oops!", message=f"details for {website} was not found")
+
+          else:
+              messagebox.showinfo(
+                  title=website, message=f"Username:{username}\nPassword: {password}")
+    else:
+        messagebox.showerror(
+                  title="Oops!", message=f"Type in a keyword to search for in the website field")
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
+
+
 def save_password():
-    website = website_input.get()
+    website = website_input.get().capitalize()
     username = username_input.get()
     password = password_input.get()
     data_dict = {
@@ -93,8 +123,8 @@ password_label = Label(text="password: ", font=("Arial", 16, "normal"))
 password_label.grid(row=3, column=0)
 
 website_input = Entry()
-website_input.config(width=38)
-website_input.grid(row=1, column=1, columnspan=2)
+website_input.config(width=24)
+website_input.grid(row=1, column=1, columnspan=1)
 website_input.focus()
 
 username_input = Entry()
@@ -105,9 +135,10 @@ password_input = Entry()
 password_input.config(width=24)
 password_input.grid(row=3, column=1)
 
+search_button = Button(text="Search", command=search_password, width=10)
+search_button.grid(row=1, column=2)
 generate_button = Button(text="Generate", command=on_gen_button, width=10)
 generate_button.grid(row=3, column=2)
-
 add_button = Button(text="Add", command=save_password, width=36)
 add_button.grid(row=4, column=1, columnspan=2)
 
